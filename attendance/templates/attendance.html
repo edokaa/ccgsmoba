@@ -1,0 +1,35 @@
+{% load static %}
+
+{% include 'includes/header.html' %}
+
+{% include 'includes/nav.html' %}
+
+<div class="container main_body" style="text-align: center">
+    <br><br><br>
+    <h3>{{ today }}</h3>
+
+    <br><br><br>
+
+    {% if mass_list %}
+        <div class="row">
+            {% for mass in mass_list %}
+                <div class="col-sm-12 col-md-12 col-lg-4">
+                    <form action="{% url 'attendance:mass' pk=mass.id %}" method="post">
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-primary btn-lg btn-block mass-btn">{{ mass.mass_name }}</button>
+                    </form>
+
+                </div>
+            {% endfor %}
+        </div>
+    {% endif %}
+    <br><br><br>
+    <div class="container">
+        <a href="{% url 'attendance:final' %}" class="btn btn-outline-secondary">DONE FOR TODAY?</a>
+    </div>
+
+    <br><br>
+</div>
+
+
+{% include 'includes/footer.html' %}

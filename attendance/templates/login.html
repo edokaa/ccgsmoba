@@ -1,0 +1,35 @@
+{% include 'includes/header.html' %}
+{% include 'includes/nav.html' %}
+
+{% load crispy_forms_tags %}
+
+
+{#    <form action="" method="post">#}
+{#        {% csrf_token %}#}
+{#        {{ login_form|crispy }}#}
+{#        <input type="submit" class="btn btn-outline-secondary" value="LOGIN" name="login_btn">#}
+{#    </form>#}
+
+
+<br><br><br>
+<div class="login">
+    <h1>Login</h1>
+    {% if login_msg %}
+        <h6>{{ login_msg }}</h6>
+        <br><br>
+    {% endif %}
+    <form method="post" action="">
+        {% csrf_token %}
+        <input type="text" name="username" value="" placeholder="Username">
+        <br><br>
+        <input type="password" name="password" value="" placeholder="Password">
+        <br><br>
+        <input type="submit" class="btn btn-outline-secondary" value="LOGIN" name="login_btn">
+
+    </form>
+</div>
+<br><br><br>
+
+
+
+{% include 'includes/footer.html' %}

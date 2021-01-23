@@ -1,0 +1,29 @@
+{% include 'includes/header.html' %}
+
+{% include 'includes/nav.html' %}
+<br>
+<div class="container" style="text-align: center">
+    <div class="row">
+        {% for mass in mass_list %}
+            <div class="col-4">
+                <h6>{{ mass.mass_name }}</h6>
+            </div>
+        {% endfor %}
+    </div>
+    <div class="row">
+        {% for mass_no in mass_no_of_mem %}
+            <div class="col-4">
+                <p>{{ mass_no }} member(s)</p>
+            </div>
+        {% endfor %}
+    </div>
+    <br><br>
+    <h5>Total: {{ total_count }}</h5>
+    <br><br><br>
+    <form action="" method="POST">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-outline-secondary">CLEAR AND SAVE TO FILE</button>
+    </form>
+</div>
+<br><br><br><br><br><br><br><br><br>
+{% include 'includes/footer.html' %}

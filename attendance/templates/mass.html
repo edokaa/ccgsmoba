@@ -1,0 +1,50 @@
+{% load static %}
+{% include 'includes/header.html' %}
+
+{% include 'includes/nav.html' %}
+
+<div class="container" style="text-align: center">
+    <br><br><br>
+    <h5>{{ today }}, {{ mass_name }}</h5>
+    <br>
+
+    <div class="row">
+        <div class="col-4">
+            <a href="{% url 'attendance:attendance' %}" class="btn btn-outline-secondary"><h5>Go Back</h5></a>
+        </div>
+        <div class="col-4">
+            {#            {% for members in mass_members_set %}#}
+            {#                {% no_of_members += 1 %}#}
+            {#            {% endfor %}#}
+
+            <h5>Attenders ({{ no_of_members }})</h5>
+        </div>
+        <div class="col-4">
+            <form action="{% url 'attendance:select-member' pk %}" method="post">
+                {% csrf_token %}
+                <button class="btn btn-outline-secondary" name="select_member"><h5>Add</h5></button>
+            </form>
+        </div>
+    </div>
+    <br>
+    <br>
+    <table class="table">
+        <tr>
+            <th scope="col">S/N</th>
+            <th scope="col">NAME</th>
+            <th scope="col">PHONE NO</th>
+            <th scope="col">ADDRESS</th>
+        </tr>
+        <!-- iterate over the members db and display there details -->
+        {% for member in mass_members_set %}
+            <tr>
+                <td>{{ forloop.counter }}</td>
+                <td>{{ member.member_name }}</td>
+                <td>{{ member.member_phone_no }}</td>
+                <td>{{ member.member_address }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+</div>
+<br><br><br><br>
+{% include 'includes/footer.html' %}

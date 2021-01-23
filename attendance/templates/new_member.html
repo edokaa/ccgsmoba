@@ -1,0 +1,33 @@
+{% include 'includes/header.html' %}
+{% include 'includes/nav.html' %}
+
+{% load crispy_forms_tags %}
+
+
+<div class="container" style="text-align: center !important;" >
+    <br><br>
+    <h5>{{ today }}</h5>
+    <h5>{{ mass_name }} ({{ no_of_members }})</h5>
+    <br><br>
+    <form action="{% url 'attendance:select-member' pk %}" method="post" >
+        {% csrf_token %}
+        <button name="select_member" class="btn btn-outline-secondary">GO BACK</button>
+    </form>
+    <br><br><br><br>
+    {% if success_msg %}
+        <h6>{{ success_msg }}</h6>
+        <br><br>
+    {% endif %}
+    {% if error_msg %}
+        <h6>{{ error_msg }}</h6>
+        <br><br>
+    {% endif %}
+
+    <form action="" method="post">
+        {% csrf_token %}
+        {{ form|crispy }}
+        <input type="submit" class="btn btn-outline-secondary" value="ADD" name="submit_new">
+    </form>
+</div>
+<br><br><br><br><br>
+{% include 'includes/footer.html' %}
