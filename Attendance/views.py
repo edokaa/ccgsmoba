@@ -68,7 +68,7 @@ class AttendanceView(LoginRequiredMixin, ListView):
     redirect_field_name = 'attendance/'
 
     template_name = 'attendance.html'
-    
+
     def get_queryset(self):
         return Mass.objects.all()
 
