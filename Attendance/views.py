@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect
-from .models import Mass, Member, This_Sunday_Member, Town
+from .models import *
 from django.urls import reverse
 import datetime
 from .forms import MemberForm, LoginForm
@@ -341,6 +341,24 @@ class FinalView(LoginRequiredMixin, View):
             return HttpResponse('unsuccessful')
 
         return HttpResponseRedirect(reverse('attendance:index'))
+
+
+class FilesView(LoginRequiredMixin, ListView):
+    login_url = '/attendance/login/'
+    redirect_field_name = ''
+
+    template_name = 'files.html'
+
+    def get_queryset(self):
+        return LogsFile.objects.all()
+
+    def get_context_data(self, **kwargs):
+        title = 'CCGS Attendance Files'
+        files = LogsFile.objects.all()
+        context = super().get_context_data(**kwargs)
+        context['title'] = title
+        context['files'] = files
+        return context
 
 def add_member_from_excel():
     wb = openpyxl.load_workbook('today_log.xlsx')

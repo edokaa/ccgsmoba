@@ -36,3 +36,10 @@ class This_Sunday_Member(models.Model):
 
     def __str__(self):
         return self.member_name.member_name
+
+class LogsFile(models.Model):
+    adminupload = models.FileField(upload_to='media/log')
+    title = models.CharField(max_length=50)
+
+    def __str__(self):
+        return self.title

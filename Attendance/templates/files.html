@@ -1,0 +1,12 @@
+{% include 'includes/header.html' %}
+
+{% include 'includes/nav.html' %}
+<br><br><br><br><br><br>
+div.row
+{% for file in files %}
+    <h2>{{ file.title }}</h2>
+    <a href="{{ file.adminupload.url }}" download="{{ file.adminupload.url }}">Download</a>
+{% endfor %}
+
+<br><br><br><br><br><br>
+{% include 'includes/footer.html' %}

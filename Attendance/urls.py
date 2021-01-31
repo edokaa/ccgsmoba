@@ -14,6 +14,7 @@ urlpatterns = [
     path('attendance/mass-<int:pk>/select-member', views.SelectMemberView.as_view(), name='select-member'),
     path('attendance/mass-<int:pk>/new-member', views.AddNewView.as_view(), name='new-member'),
     path('attendance/final-details', views.FinalView.as_view(), name='final'),
+    path('files/', views.FilesView.as_view(), name='files'),
 
     # path('attendance/login-2/', auth_views.LoginView.as_view(), name='login-2'),
 

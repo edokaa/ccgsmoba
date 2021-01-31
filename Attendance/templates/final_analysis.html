@@ -20,10 +20,18 @@
     <br><br>
     <h5>Total: {{ total_count }}</h5>
     <br><br><br>
-    <form action="" method="POST">
-        {% csrf_token %}
-        <button type="submit" class="btn btn-outline-secondary">CLEAR AND SAVE TO FILE</button>
-    </form>
+    <div class="row">
+        <div class="col-6">
+        <form action="" method="POST">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-outline-secondary">SAVE TO FILE</button>
+        </form>
+        </div>
+        <div class="col-6">
+            <a href=""></a>
+        </div>
+    </div>
 </div>
-<br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br>
+
 {% include 'includes/footer.html' %}
