@@ -40,6 +40,7 @@ class This_Sunday_Member(models.Model):
 class LogsFile(models.Model):
     adminupload = models.FileField(upload_to='media/log')
     title = models.CharField(max_length=50)
+    total_members = models.CharField(max_length=20, default='Nill')
 
     def __str__(self):
         return self.title

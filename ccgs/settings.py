@@ -28,15 +28,7 @@ SECRET_KEY = os.environ.get('CCGS_SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = (os.environ.get('DJANGO_DEBUG_VALUE') == 'True')
 
-ALLOWED_HOSTS = [
-    '192.168.43.34',
-    'localhost',
-    '127.0.0.1',
-    '192.168.6.1',
-    '192.168.0.100',
-    '192.168.0.101',
-    'ccgsmoba.herokuapp.com',
-]
+ALLOWED_HOSTS = ['ccgsmoba.herokuapp.com', 'localhost']
 
 
 # Application definition

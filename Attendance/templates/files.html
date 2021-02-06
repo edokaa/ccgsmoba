@@ -1,12 +1,31 @@
 {% include 'includes/header.html' %}
 
 {% include 'includes/nav.html' %}
-<br><br><br><br><br><br>
-div.row
-{% for file in files %}
-    <h2>{{ file.title }}</h2>
-    <a href="{{ file.adminupload.url }}" download="{{ file.adminupload.url }}">Download</a>
-{% endfor %}
 
-<br><br><br><br><br><br>
+<div class="container">
+    <div class="container">
+        <br><br><br><br><br><br>
+
+        <table class="table" style="text-align: center">
+            <tr>
+                <th scope="col">S/N</th>
+                <th scope="col">DATE</th>
+                <th scope="col">TOTAL MEMBERS</th>
+                <th scope="col">ACTION</th>
+            </tr>
+
+            {% for file in files %}
+                <tr>
+                    <td>{{ forloop.counter }}</td>
+                    <td>{{ file.title }}</td>
+                    <td>{{ file.total_members }}</td>
+                    <td><a href="{{ file.adminupload.url }}" download="{{ file.adminupload.url }}" class="btn btn-outline-secondary">Download</a></td>
+                </tr>
+
+            {% endfor %}
+        </table>
+
+        <br><br><br><br><br><br>
+    </div>
+</div>
 {% include 'includes/footer.html' %}

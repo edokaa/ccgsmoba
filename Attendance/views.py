@@ -1,5 +1,7 @@
 from django.shortcuts import render
-from django.http import HttpResponse, HttpResponseRedirect
+from django.http import HttpResponse, HttpResponseRedirect, Http404
+
+from ccgs import settings
 from .models import *
 from django.urls import reverse
 import datetime
@@ -17,11 +19,13 @@ from django.contrib.auth import authenticate, login
 
 from django.contrib.auth.mixins import LoginRequiredMixin
 
+import os
 
 # Create your views here.
 
 
 today = datetime.date.today().strftime('%A, %B %d, %Y')
+
 
 class IndexView(View):
     def get(self, request):
@@ -41,7 +45,7 @@ class LoginView(View):
             'login_form': login_form,
             'title': title
         }
-        return render(request,'login.html', context)
+        return render(request, 'login.html', context)
 
     def post(self, request, *args, **kwargs):
         username = request.POST['username']
@@ -158,7 +162,7 @@ class SelectMemberView(LoginRequiredMixin, View):
                             'selected_member': selected_member,
                             'mass_name': mass_name,
                             'title': title,
-                            'no_of_members': no_of_members+1,
+                            'no_of_members': no_of_members + 1,
                             'today': today,
                             'pk': pk,
                         }
@@ -280,7 +284,7 @@ class FinalView(LoginRequiredMixin, View):
     def get(self, request, *args, **kwargs):
         title = 'Todays Details'
         mass_list = Mass.objects.all()
-        mass_no_of_mem = [1,2,3]
+        mass_no_of_mem = [1, 2, 3]
         # for i,mass in enumerate(mass_list):
         #     mass_no_of_mem[i] = no_of_mem(mass)
         i = 0
@@ -300,15 +304,17 @@ class FinalView(LoginRequiredMixin, View):
 
     def post(self, request, *args, **kwargs):
         mass_list = Mass.objects.all()
-        wb_path = 'today_log.xlsx'
-        wb = load_workbook(wb_path)
-
         sheet_title = datetime.date.today().strftime('%d-%m-%Y')
 
-        # if sheet_title in wb.sheetnames:
-        #     wb[sheet_title].title = sheet_title + 'old'
-        # else:
+        wb_path = 'media_cdn/media/log/' + sheet_title + '.xlsx'
+        wb = load_workbook(wb_path)
+
+        if sheet_title in wb.sheetnames:
+            wb[sheet_title].title = sheet_title + '(old)'
+
         wb.create_sheet(title=sheet_title)
+        del_sh = wb.get_sheet_by_name('Sheet')
+        wb.remove_sheet(del_sh)
 
         sheet = wb[sheet_title]
 
@@ -335,12 +341,13 @@ class FinalView(LoginRequiredMixin, View):
 
         try:
             wb.save(wb_path)
+            LogsFile.objects.create(adminupload='media/log/' + sheet_title + '.xlsx', title=sheet_title, total_members=This_Sunday_Member.objects.count())
             This_Sunday_Member.objects.all().delete()
 
         except:
             return HttpResponse('unsuccessful')
 
-        return HttpResponseRedirect(reverse('attendance:index'))
+        return HttpResponseRedirect(reverse('attendance:files'))
 
 
 class FilesView(LoginRequiredMixin, ListView):
@@ -359,6 +366,18 @@ class FilesView(LoginRequiredMixin, ListView):
         context['title'] = title
         context['files'] = files
         return context
+
+
+def download(request, path):
+    file_path = os.path.join(settings.MEDIA_ROOT, path)
+    if os.path.exists(file_path):
+        with open(file_path, 'rb') as fh:
+            response = HttpResponse(fh.read(), content_type="application/adminupload")
+            response['Content-Disposition'] = 'inline;filename=' + os.path.basename(file_path)
+            return response
+
+    raise Http404
+
 
 def add_member_from_excel():
     wb = openpyxl.load_workbook('today_log.xlsx')
@@ -383,6 +402,7 @@ def members_for_each_mass(mass_name):
     for i, mem in enumerate(mass_members_set, start=1):
         print(f"({i}) {mem.member_name.member_name} - {mem.member_phone_no} - {mem.member_address.town_name}")
     print('')
+
 
 def load_workbook(wb_path):
     if path.exists(wb_path):
@@ -410,4 +430,3 @@ def no_of_mem(the_mass):
     for member in mass_members_set:
         no_of_members += 1
     return no_of_members
-

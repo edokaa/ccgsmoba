@@ -1,7 +1,7 @@
 {% include 'includes/header.html' %}
 
 {% include 'includes/nav.html' %}
-<br>
+<br><br><br><br>
 <div class="container" style="text-align: center">
     <div class="row">
         {% for mass in mass_list %}
@@ -21,14 +21,16 @@
     <h5>Total: {{ total_count }}</h5>
     <br><br><br>
     <div class="row">
+        {% if total_count %}
         <div class="col-6">
         <form action="" method="POST">
             {% csrf_token %}
             <button type="submit" class="btn btn-outline-secondary">SAVE TO FILE</button>
         </form>
         </div>
+        {% endif %}
         <div class="col-6">
-            <a href=""></a>
+            <a href="{% url 'attendance:files' %}" class="btn btn-outline-secondary">View Files</a>
         </div>
     </div>
 </div>
