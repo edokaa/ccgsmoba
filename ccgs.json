@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "ccgs-304300",
+  "private_key_id": "b7539ec998999dd7c861d13a075b116e31d90e60",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCdsffKo9qdTjhL\nQf+YYSAiFS2dXFIgejegAwIbXeCmoc0n1vrs/Y00yO7EBDGSm5LbN/cW0a/9Iaoq\n/xClWZSO32wi3zVId5ReyKG479QS4CQbSqbgF3xvj8H5JP3trkGfGVIG3IFEz1Hm\nF5xmgkU9DsaRIt/seg+zf9u6JNt2Gn8iylWjEpKWc+Gp614mM0E+Vn5Tbdgm+tEG\nUEtuQZyjO2c6x5UAFxTYR0V0BGGBnbwJCGg1o1BtMB2/zNi7hHZgBK5aCRxnC76d\nuJt9LGVp2Q3WAwcswayYkXlpu/rh9jaXzI+YLr3YxucrViUJOUdnNmgrUUf/wwMc\n/7OoCltFAgMBAAECggEAFKh1Fu1oJ3tREerPb51+9s1iGwnhEwgaXrKGMCJC2ma6\ngsw9iuucTUc/9XBnM2wrTN8uq0/vh3BFjo8OFdsqWZ0YhBOhiKDBpbkQFoi0dink\nEP8yj+CubcmeAOQWWnCdgBjHuhu2Liwf783gBehtkZYXRSQVxDDT+xEg2RMYUjGU\nbIh+TftUbQH1zU7d0qtxVQbzGlhZrGsEOE/KwoNQ8EdaXuHRtLa6Ar+fWJXPK6kq\nNmHc9vTgSTahc5bc6HhWlNLyw2QCnlTSQuBGKWB8G7HYvbrQi30HnP3J2jYnXxuC\nl7S1lBCUxT96vyhdbW+RgUb/k7n+BaAVR6GCcDSicQKBgQDMxnRvj+J6XewjBqR2\n29A3Utahzwp2AE34aUc8EkRYGJNYOH7nDSwnxzr/tVZUIKvpNpYO5Ypa6O3SiqmQ\nJafZxYu7RroWHbKv3mha4LlYenz7OsHXjIgp0o5n5ghFvYJ9Szm9iA5eEg2d7JcH\n+tLX7zeWHDgl8YuGwk/5ll38XwKBgQDFJJFfBg8QTIlpBX+Viupp67rHSaSBiWmt\nI3S2O7lCNT+JPK6uJtQQSadslPq2Ynw0PfMGPAtibiVuAkc/28xW35r0Za76xDdJ\nHuUdN5/aW5n2ZB+4wtiwE6gjIIvIi9sA4usVjGyaww8BAZX8j2yMyOMp16ENZJZX\nMHXHI1BK2wKBgD+VyAX0ScDxdSeTInJ94vOq11a7MWZexddC6YmvqmUojGgycsVQ\nA8v+Q0WvizToSDlMZ+AMSp/cAC0GPYyzBKHMg40Ncy723ctaZlEBwsvEjRZ9sj86\nNfW2md2NQjhVljVNrIo7uypetLe7BVLHAb1nXH1SGeU+UbLwl2DK3jhFAoGAM/M8\n86NvGMZyd2BhjJC80QizgYygcxo45M0xFkyKty28/nclOPM2csxV+EESCDnPrRye\nDAiKn3eTGXg0Olm7cTEfbkPVZnOKdhRUH+zmjO4SlmEwEsoVu+CSMB+FdmWUYplp\nhZYpkGbSb1txoMpSuo69fes6n4LgMz2r67wcjn0CgYEAwaz1kGiwook2ccXBaWwP\n2uLlciWp7WwiiT702Avelhp8FSb75ZFRovWh48AbmjBIXJfw1GvrLqC2hz+CK5V2\nZLN/iteqj+bLPHspJGO9KL9NXZWu6P+J6AQhaCv4bUZZSQxClUpDUhUElIwT0kLB\n13NOuhLSc1/Et48f9CbtLjo=\n-----END PRIVATE KEY-----\n",
+  "client_email": "download-attendance-log@ccgs-304300.iam.gserviceaccount.com",
+  "client_id": "109351319320337181379",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/download-attendance-log%40ccgs-304300.iam.gserviceaccount.com"
+}

@@ -141,5 +141,5 @@ django_heroku.settings(locals())
 # Google Drive Storage Settings
 #
 
-GOOGLE_DRIVE_STORAGE_JSON_KEY_FILE = r"C:\Users\Petre\Downloads\CCGS-8bb280c728ce.json"
+GOOGLE_DRIVE_STORAGE_JSON_KEY_FILE = 'ccgs.json'
 GOOGLE_DRIVE_STORAGE_MEDIA_ROOT = os.path.join(BASE_DIR, 'media_cdn')
