@@ -41,7 +41,7 @@ class This_Sunday_Member(models.Model):
 
 
 class LogsFile(models.Model):
-    adminupload = models.FileField(upload_to='log', storage=gd_storage)
+    adminupload = models.FileField(upload_to='media/log', storage=gd_storage)
     title = models.CharField(max_length=50)
     total_members = models.IntegerField(default=0)
 
