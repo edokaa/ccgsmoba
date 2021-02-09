@@ -306,7 +306,7 @@ class FinalView(LoginRequiredMixin, View):
         mass_list = Mass.objects.all()
         sheet_title = datetime.date.today().strftime('%d-%m-%Y')
 
-        sheet_dir = 'media/log/' + sheet_title + '.xlsx'
+        sheet_dir = sheet_title + '.xlsx'
         wb_path = sheet_dir
         wb = load_workbook(wb_path)
 
