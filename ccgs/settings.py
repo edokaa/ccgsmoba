@@ -141,7 +141,7 @@ django_heroku.settings(locals())
 # Google Drive Storage Settings
 #
 
-GOOGLE_DRIVE_STORAGE_JSON_KEY_FILE = None
+# GOOGLE_DRIVE_STORAGE_JSON_KEY_FILE = None
 GOOGLE_DRIVE_STORAGE_JSON_KEY_FILE_CONTENTS = {
   "type": "service_account",
   "project_id": "ccgs-304300",
