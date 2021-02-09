@@ -1,7 +1,9 @@
 from django.db import models
-
+from gdstorage.storage import GoogleDriveStorage
 
 # Create your models here.
+
+gd_storage = GoogleDriveStorage()
 
 
 class Town(models.Model):
@@ -37,10 +39,11 @@ class This_Sunday_Member(models.Model):
     def __str__(self):
         return self.member_name.member_name
 
+
 class LogsFile(models.Model):
-    adminupload = models.FileField(upload_to='media/log')
+    adminupload = models.FileField(upload_to='log', storage=gd_storage)
     title = models.CharField(max_length=50)
-    total_members = models.CharField(max_length=20, default='Nill')
+    total_members = models.IntegerField(default=0)
 
     def __str__(self):
         return self.title
