@@ -142,7 +142,7 @@ django_heroku.settings(locals())
 #
 
 # GOOGLE_DRIVE_STORAGE_JSON_KEY_FILE = None
-GOOGLE_DRIVE_STORAGE_JSON_KEY_FILE_CONTENTS = {
+GOOGLE_DRIVE_STORAGE_JSON_KEY_FILE = {
   "type": "service_account",
   "project_id": "ccgs-304300",
   "private_key_id": "b7539ec998999dd7c861d13a075b116e31d90e60",
