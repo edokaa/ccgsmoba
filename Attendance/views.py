@@ -306,7 +306,8 @@ class FinalView(LoginRequiredMixin, View):
         mass_list = Mass.objects.all()
         sheet_title = datetime.date.today().strftime('%d-%m-%Y')
 
-        wb_path = 'media_cdn/media/log/' + sheet_title + '.xlsx'
+        sheet_dir = sheet_title + '.xlsx'
+        wb_path = sheet_dir
         wb = load_workbook(wb_path)
 
         if sheet_title in wb.sheetnames:
@@ -341,7 +342,7 @@ class FinalView(LoginRequiredMixin, View):
 
         try:
             wb.save(wb_path)
-            LogsFile.objects.create(adminupload='media/log/' + sheet_title + '.xlsx', title=sheet_title, total_members=This_Sunday_Member.objects.count())
+            LogsFile.objects.create(adminupload=sheet_dir, title=sheet_title, total_members=This_Sunday_Member.objects.count())
             This_Sunday_Member.objects.all().delete()
 
         except:
