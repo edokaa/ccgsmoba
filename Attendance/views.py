@@ -306,7 +306,7 @@ class FinalView(LoginRequiredMixin, View):
         mass_list = Mass.objects.all()
         sheet_title = datetime.date.today().strftime('%d-%m-%Y')
 
-        sheet_dir = sheet_title + '.xlsx'
+        sheet_dir = f"media/{sheet_title}.xlsx"
         wb_path = sheet_dir
         wb = load_workbook(wb_path)
 
@@ -343,7 +343,7 @@ class FinalView(LoginRequiredMixin, View):
         try:
             wb.save(wb_path)
             LogsFile.objects.create(adminupload=sheet_dir, title=sheet_title, total_members=This_Sunday_Member.objects.count())
-            This_Sunday_Member.objects.all().delete()
+            # This_Sunday_Member.objects.all().delete()
 
         except:
             return HttpResponse('unsuccessful')
